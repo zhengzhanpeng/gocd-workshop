@@ -11,7 +11,7 @@ pipelines:
       gocd-workshop-git:
         git: https://github.com/zhengzhanpeng/gocd-workshop.git
     stages:
-      test:
+    - test:
         jobs:
           unit-test:
             tasks:
