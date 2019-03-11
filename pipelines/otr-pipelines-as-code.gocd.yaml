@@ -35,4 +35,5 @@ pipelines:
                   stage: build
                   job: build-project
                   source: gocd-1.0.jar
+                  is_file: yes
               - script: 'java -jar gocd-1.0.jar >boot-run.log &'
