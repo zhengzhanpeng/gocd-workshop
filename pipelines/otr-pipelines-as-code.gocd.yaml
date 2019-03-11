@@ -5,7 +5,7 @@ environments:
     pipelines:
     - pipeline-as-code-workshop
 pipelines:
-  pipeline-as-code-workshop:
+  pipeline-as-code-workshop1:
     group: otr
     materials:
       gocd-workshop-git:
