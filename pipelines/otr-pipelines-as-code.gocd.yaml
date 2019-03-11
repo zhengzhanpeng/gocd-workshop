@@ -5,17 +5,17 @@ environments:
     pipelines:
     - gocd-workshop
 pipelines:
-  my-pipeline1:
+  my-pipeline2:
     group: otr
     materials:
       gocd-workshop-git:
         git: https://github.com/zhengzhanpeng/gocd-workshop.git
-    stages:
-    - test:
-        jobs:
-          unit-test:
-            tasks:
-              script: ./gradlew clean test
+#    stages:
+#    - test:
+#        jobs:
+#          unit-test:
+#            tasks:
+#              script: ./gradlew clean test
 #    - build:
 #        jobs:
 #          build-project:
