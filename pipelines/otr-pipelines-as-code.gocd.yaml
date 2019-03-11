@@ -9,13 +9,13 @@ pipelines:
     group: otr
     materials:
       gocd-workshop-git:
-        git: 'https://github.com/zhengzhanpeng/gocd-workshop.git'
+        git: https://github.com/zhengzhanpeng/gocd-workshop.git
     stages:
     - test:
         jobs:
           unit-test:
             tasks:
-              script: './gradlew clean test'
+              script: ./gradlew clean test
 #    - build:
 #        jobs:
 #          build-project:
