@@ -31,8 +31,8 @@ pipelines:
           deploy:
             tasks:
               - fetch:
-                  pipeline: gocd-workshop
+                  pipeline: pipeline-as-code-workshop
                   stage: build
                   job: build-project
                   source: gocd-1.0.jar
-              - script: 'java -jar gocd-1.0.jar &gt;boot-run.log &'
+              - script: 'java -jar gocd-1.0.jar >boot-run.log &'
