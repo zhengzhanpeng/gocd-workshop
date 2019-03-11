@@ -1,5 +1,5 @@
 pipelines:
-  yamlpipe4:
+  pipeline-as-code-workshop:
     group: simple
     materials:
       mygit:  # this is the name of material
