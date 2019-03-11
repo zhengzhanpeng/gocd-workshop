@@ -15,7 +15,7 @@ pipelines:
         jobs:
           unit-test:
             tasks:
-              script: ./gradlew clean test
+            - script: ./build.sh ci
 #  my-pipeline1:
 #    group: otr
 #    materials:
