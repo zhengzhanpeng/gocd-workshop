@@ -13,7 +13,7 @@ pipelines:
     stages:
     - test:
         jobs:
-        - unit-test:
+          unit-test:
             tasks:
               - script: ./gradlew clean test
 #    - build:
