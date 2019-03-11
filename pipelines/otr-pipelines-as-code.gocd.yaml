@@ -22,8 +22,8 @@ pipelines:
             tasks:
               - script: './gradlew build'
             artifacts:
-              build:
-                source: build/libs/gocd-1.0.jar
+              - build:
+                  source: build/libs/gocd-1.0.jar
     - deployment-qa:
         approval:
           type: manual
