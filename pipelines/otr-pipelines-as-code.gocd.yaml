@@ -6,11 +6,10 @@ environments:
     - pipeline-as-code-workshop
 pipelines:
   pipeline-as-code-workshop:
-    group: simple
+    group: otr
     materials:
-      mygit:  # this is the name of material
-        # says about type of material and url at once
-        git: http://my.example.org/mygit.git
+      gocd-workshop-git:
+        git: https://github.com/zhengzhanpeng/gocd-workshop.git
     stages:
     - build: # name of stage
         jobs:
