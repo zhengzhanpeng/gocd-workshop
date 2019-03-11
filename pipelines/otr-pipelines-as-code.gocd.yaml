@@ -3,15 +3,15 @@ environments:
 #    environment_variables:
 #      JAVA_HOME: '/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home'
     pipelines:
-    - pipeline-as-code-workshop1
+    - pipeline-as-code-workshop
 pipelines:
-  pipeline-as-code-workshop2:
+  pipeline-as-code-workshop:
     group: otr
     materials:
       gocd-workshop-git:
         git: https://github.com/zhengzhanpeng/gocd-workshop.git
     stages:
-    - test:
+      test:
         jobs:
           unit-test:
             tasks:
