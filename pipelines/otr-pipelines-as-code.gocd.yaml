@@ -11,39 +11,28 @@ pipelines:
       gocd-workshop-git:
         git: https://github.com/zhengzhanpeng/gocd-workshop.git
     stages:
-      test2:
+    - test2:
         jobs:
-          unit-test:
+        - unit-test:
             tasks:
               - script: ./gradlew clean test
-#  my-pipeline1:
-#    group: otr
-#    materials:
-#      gocd-workshop-git:
-#        git: https://github.com/zhengzhanpeng/gocd-workshop.git
-#    stages:
-#    - test:
-#        jobs:
-#          unit-test:
-#            tasks:
-#              script: ./gradlew clean test
-#    - build:
-#        jobs:
-#          build-project:
-#            tasks:
-#              script: './gradlew build'
-#            artifacts:
-#              build:
-#                source: build/libs/gocd-1.0.jar
-#    - deployment-qa:
-#        approval:
-#          type: manual
-#        jobs:
-#          deploy:
-#            tasks:
-#              - fetch:
-#                  pipeline: gocd-workshop
-#                  stage: build
-#                  job: build-project
-#                  source: gocd-1.0.jar
-#              - script: 'java -jar gocd-1.0.jar &gt;boot-run.log &'
+    - build:
+        jobs:
+        - build-project:
+            tasks:
+              - script: './gradlew build'
+            artifacts:
+              build:
+                source: build/libs/gocd-1.0.jar
+    - deployment-qa:
+        approval:
+          type: manual
+        jobs:
+        - deploy:
+            tasks:
+              - fetch:
+                  pipeline: gocd-workshop
+                  stage: build
+                  job: build-project
+                  source: gocd-1.0.jar
+              - script: 'java -jar gocd-1.0.jar &gt;boot-run.log &'
