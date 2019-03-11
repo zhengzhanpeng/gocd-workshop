@@ -1,0 +1,38 @@
+environments:
+  java-home:
+    environment_variables:
+      JAVA_HOME: '/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home'
+    pipelines:
+    - gocd-workshop
+pipelines:
+  pipeline-as-code-workshop:
+    group: otr
+    materials:
+      gocd-workshop-git:
+        git: 'https://github.com/zhengzhanpeng/gocd-workshop.git'
+    stages:
+    - test:
+        jobs:
+          unit-test:
+            tasks:
+              script: './gradlew clean test'
+    - build:
+        jobs:
+          build-project:
+            tasks:
+              script: './gradlew build'
+            artifacts:
+              build:
+                source: build/libs/gocd-1.0.jar
+    - deployment-qa:
+        approval:
+          type: manual
+        jobs:
+          deploy:
+            tasks:
+              - fetch:
+                  pipeline: gocd-workshop
+                  stage: build
+                  job: build-project
+                  source: gocd-1.0.jar
+              - script: 'java -jar gocd-1.0.jar &gt;boot-run.log &'
