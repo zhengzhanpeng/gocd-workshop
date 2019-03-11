@@ -1,3 +1,7 @@
+environments:
+  java_home:
+    pipelines:
+    - yamlpipe4
 pipelines:
   pipeline-as-code-workshop:
     group: simple
