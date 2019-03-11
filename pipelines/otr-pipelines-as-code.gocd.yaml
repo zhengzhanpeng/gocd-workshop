@@ -1,5 +1,5 @@
 environments:
-  java-home:
+  java-home2:
     environment_variables:
       JAVA_HOME: '/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home'
     pipelines:
