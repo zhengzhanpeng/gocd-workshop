@@ -5,7 +5,7 @@ environments:
     pipelines:
     - gocd-workshop
 pipelines:
-  my-pipeline:
+  my-pipeline1:
     group: otr
     materials:
       gocd-workshop-git:
