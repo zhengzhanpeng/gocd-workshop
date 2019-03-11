@@ -5,7 +5,7 @@ environments:
     pipelines:
     - pipeline-as-code-workshop1
 pipelines:
-  pipeline-as-code-workshop1:
+  pipeline-as-code-workshop2:
     group: otr
     materials:
       gocd-workshop-git:
@@ -15,7 +15,7 @@ pipelines:
         jobs:
           unit-test:
             tasks:
-            - script: ./gradlew clean test
+              script: ./gradlew clean test
 #  my-pipeline1:
 #    group: otr
 #    materials:
