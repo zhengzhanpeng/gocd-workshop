@@ -11,12 +11,11 @@ pipelines:
       gocd-workshop-git:
         git: https://github.com/zhengzhanpeng/gocd-workshop.git
     stages:
-    - build: # name of stage
+    - test:
         jobs:
-          build: # name of the job
+          unit-test:
             tasks:
-            - exec: # indicates type of task
-                command: make
+              script: ./gradlew clean test
 #  my-pipeline1:
 #    group: otr
 #    materials:
