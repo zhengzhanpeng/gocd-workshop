@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Hello World"'
+                sh './gradlew clean build'
                 sh '''
                     echo "Multiline shell steps works too"
                     ls -lah
