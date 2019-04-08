@@ -2,6 +2,7 @@ pipeline {
     agent any
     stages {
         stage('Test') {
+            agent { docker 'openjdk:8-jre' }
             steps {
                 sh './gradlew clean test'
             }
@@ -9,11 +10,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh './gradlew build'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh './gradlew bootRun'
             }
         }
     }
