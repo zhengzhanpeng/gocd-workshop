@@ -7,22 +7,22 @@ pipeline {
       }
     }
     stage('Build') {
+      steps {
+        sh './gradlew build'
+      }
+    }
+    stage('Deploy') {
       parallel {
-        stage('Build') {
+        stage('Deploy') {
           steps {
-            sh './gradlew build'
+            sh './gradlew bootRun &'
           }
         }
-        stage('xxx') {
+        stage('artive') {
           steps {
             archiveArtifacts(artifacts: 'build/libs/gocd-1.0.jar', fingerprint: true, onlyIfSuccessful: true)
           }
         }
-      }
-    }
-    stage('Deploy') {
-      steps {
-        sh './gradlew bootRun &'
       }
     }
   }
