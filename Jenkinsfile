@@ -2,22 +2,22 @@ pipeline {
   agent any
   stages {
     stage('Test') {
-      parallel {
-        stage('Test') {
-          steps {
-            sh './gradlew test'
-          }
-        }
-        stage('test2') {
-          steps {
-            build 'xxxx'
-          }
-        }
+      steps {
+        sh './gradlew test'
       }
     }
     stage('Build') {
-      steps {
-        sh './gradlew build'
+      parallel {
+        stage('Build') {
+          steps {
+            sh './gradlew build'
+          }
+        }
+        stage('get') {
+          steps {
+            archiveArtifacts 'build/libs/gocd-1.0.jar'
+          }
+        }
       }
     }
     stage('Deploy') {
