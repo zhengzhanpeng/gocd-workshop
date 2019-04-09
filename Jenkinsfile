@@ -17,11 +17,4 @@ pipeline {
       }
     }
   }
-  post {
-    always {
-      junit 'build/reports/tests/test/index.html'
-
-    }
-
-  }
 }
