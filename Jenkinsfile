@@ -2,8 +2,17 @@ pipeline {
   agent any
   stages {
     stage('Test') {
-      steps {
-        sh './gradlew test'
+      parallel {
+        stage('Test') {
+          steps {
+            sh './gradlew test'
+          }
+        }
+        stage('test2') {
+          steps {
+            build 'xxxx'
+          }
+        }
       }
     }
     stage('Build') {
@@ -18,8 +27,10 @@ pipeline {
     }
   }
   post {
-      always {
-          junit 'build/reports/tests/test/index.html'
-      }
+    always {
+      junit 'build/reports/tests/test/index.html'
+
+    }
+
   }
 }
