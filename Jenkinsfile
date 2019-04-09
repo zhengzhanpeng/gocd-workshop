@@ -7,8 +7,17 @@ pipeline {
       }
     }
     stage('Build') {
-      steps {
-        sh './gradlew build'
+      parallel {
+        stage('Build') {
+          steps {
+            sh './gradlew build'
+          }
+        }
+        stage('xxx') {
+          steps {
+            archiveArtifacts(artifacts: 'build/libs/gocd-1.0.jar', fingerprint: true, onlyIfSuccessful: true)
+          }
+        }
       }
     }
     stage('Deploy') {
