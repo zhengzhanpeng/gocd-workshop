@@ -7,8 +7,17 @@ pipeline {
       }
     }
     stage('Build') {
-      steps {
-        sh './gradlew build'
+      parallel {
+        stage('Build') {
+          steps {
+            sh './gradlew build'
+          }
+        }
+        stage('xxxx') {
+          steps {
+            sh 'echo \'hello\''
+          }
+        }
       }
     }
     stage('Deploy') {
